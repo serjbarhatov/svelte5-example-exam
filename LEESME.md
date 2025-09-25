@@ -32,9 +32,9 @@ Enkele uitgangspunten
 
 Gegeven is het bovenstaande plaatje; dit is hoe het uiteindelijk er uit zou moeten zien.
 
-1. (5 punten). Op de hoofdpagina; haal door middel van een server request de gegevens op van alle pets `/pets` en toon deze woorden in de gegeven tabel zoals in het voorbeeld figuur staat.
+1. (5 punten). Op de hoofdpagina; haal door middel van een server request de gegevens op van alle pets `/pets` en toon deze woorden in de gegeven tabel zoals in het voorbeeld figuur staat onder nummer 3.
 2. (5 punten). Geef de data van de fetch uit 1 door aan het component `<Pet />`.
-3. (5 punten). In Pets worden alle individuele dier types doorgegeven aan het `<Filter>` component. In filter kun je op een item klikken. Als dit item wordt geklikt dan worden alleen die dieren in het overzicht getoond. Je gebruikt hier reactivity voor door middel van de context API in Sveltekit.
+3. (5 punten). In Pets worden alle individuele dier types doorgegeven aan het `<Filter>` component (nummer 1 in het figuur). In filter kun je op een item klikken. Als dit item wordt geklikt (nummer 2 in het figuur) dan worden alleen die dieren in het overzicht getoond. Je gebruikt hier reactivity voor door middel van de context API in Sveltekit.
 
 ### Opdracht - Backend (15 punten)
 

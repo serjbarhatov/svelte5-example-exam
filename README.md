@@ -35,9 +35,9 @@ Start with this assignment! For this assignment you need both the frontend as we
 
 Given the above image; this is what it should ultimately look like.
 
-1. (5 points). On the main page, retrieve the data of all pets via a server request to `/pets` and display these records in the given table as shown in the example figure.
+1. (5 points). On the main page, retrieve the data of all pets via a server request to `/pets` and display these records in the given table as shown in the example figure on icon number 3.
 2. (5 points). Pass the data from the fetch in step 1 to the `<Pets />` component.
-3. (5 points). In `Pets`, all individual animal types are passed to the `<Filter>` component. In `Filter`, you can click on an item. When this item is clicked, only those animals are shown in the overview. You use reactivity here by means of the Context API in SvelteKit.
+3. (5 points). In `Pets`, all individual animal types are passed to the `<Filter>` component (icon number 1). In `Filter`, you can click (icon number 2) on an item. When this item is clicked, only those animals are shown in the overview. You use reactivity here by means of the Context API in SvelteKit.
 
 Your code will be tested using Firefox.
 
