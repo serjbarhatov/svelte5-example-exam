@@ -1,6 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
 	import Filter from './Filter.svelte';
+	let { allPets } = $props();
 </script>
 
 <section class="flex flex-col">
@@ -19,6 +20,12 @@
 		</tr>
 	</thead>
 	<tbody class="text-xs">
-		<!---Add pets here-->
+		{#each allPets.pets as pet}
+			<tr>
+				<td>{pet.name}</td>
+				<td>{pet.type}</td>
+				<td>{pet.icon}</td>
+			</tr>
+		{/each}
 	</tbody>
 </table>
