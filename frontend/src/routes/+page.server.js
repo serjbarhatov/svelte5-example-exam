@@ -8,7 +8,7 @@ export const load = async ({ fetch }) => {
     const petsResponse = await fetch(`${PUBLIC_API_URL}/pets`);
     const petsUrls = await petsResponse.json();
     let petsData = [];
-    const petTypes = new Set();
+    const petTypes = new Set(['All']);
     for (let e of petsUrls) {
         const url = `${PUBLIC_API_URL}${e}`;
         console.log(url);
