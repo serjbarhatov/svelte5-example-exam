@@ -10,5 +10,6 @@ router.get('/', cors(), (req, res, next) => {
 });
 router.get('/pets', cors(), checkName, getAllPets);
 router.get('/pets/:id', cors(), checkName, getPet);
+router.put('/pets/:id', cors(), checkName, updatePet)
 
 export default router;
