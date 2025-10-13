@@ -2,7 +2,7 @@ import { JSONFilePreset } from "lowdb/node";
 
 // Read or create db.json
 // defaultData specifies the structure of the database
-const defaultData = { meta: {"tile": "List of animals","date": "September 2024"}, animals : [] }
+const defaultData = { meta: { "tile": "List of animals", "date": "September 2024" }, animals: [] }
 const db = await JSONFilePreset('db.json', defaultData)
 const animals = db.data.animals
 
@@ -41,4 +41,18 @@ export async function getAllSpiders(req, res) {
   const spiders = animals.filter(animal => animal.type === 'Spider');
   const spiderIds = spiders.map(animal => animal.id)
   res.status(200).send(spiderIds);
+}
+
+export async function deletePets(req, res) {
+  let deletedIds = req.body.ids.map(deleteAnimalById);
+  await db.write();
+  res.status(200).send(`Deleted animals with ids: ${deletedIds}`);
+}
+
+function deleteAnimalById(id) {
+  let index = animals.findIndex(animal => animal.id === id);
+  if (index > -1) {
+    animals.splice(index, 1);
+    return id;
+  }
 }
