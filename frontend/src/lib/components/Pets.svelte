@@ -1,17 +1,18 @@
 <script>
-	import { getContext } from 'svelte';
+	import { setContext } from 'svelte';
 	import Filter from './Filter.svelte';
 	let { allPets } = $props();
 	let selectedPetType = $state('All');
 	const handleFilterSelect = (s) => {
 		selectedPetType = s;
 	};
+	setContext('pets', {handleFilterSelect});
 </script>
 
 <section class="flex flex-col">
 	<h3 class="text-center">Use this filter to switch between pets</h3>
 	<ul class="flex justify-center">
-		<Filter petTypes = {allPets.petTypes} select = {handleFilterSelect}/>
+		<Filter petTypes = {allPets.petTypes}/>
 	</ul>
 </section>
 <h2 class="my-6 text-center text-2xl">Dogs selected</h2>
