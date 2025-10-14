@@ -1,17 +1,17 @@
 import express from 'express';
 import { getAllPets, updatePet, getPet, getAllSpiders, deletePets } from '../controllers/petsController.js';
-import { checkName } from '../middleware/exampleMiddleware.js';
+import { checkName, logHostname } from '../middleware/exampleMiddleware.js';
 import cors from 'cors';
 const router = express.Router();
 
 // routes
-router.get('/', cors(), (req, res, next) => {
+router.get('/', cors(), logHostname, (req, res, next) => {
   res.json('hi');
 });
-router.get('/pets', cors(), checkName, getAllPets);
-router.get('/pets/spiders', cors(), checkName, getAllSpiders);
-router.get('/pets/:id', cors(), checkName, getPet);
-router.put('/pets/:id', cors(), checkName, updatePet)
-router.delete('/pets', cors(), checkName, deletePets);
+router.get('/pets', cors(), logHostname, checkName, getAllPets);
+router.get('/pets/spiders', cors(), logHostname, checkName, getAllSpiders);
+router.get('/pets/:id', cors(), logHostname, checkName, getPet);
+router.put('/pets/:id', cors(), logHostname, checkName, updatePet)
+router.delete('/pets', cors(), logHostname, checkName, deletePets);
 
 export default router;
