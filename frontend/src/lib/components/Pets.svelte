@@ -7,7 +7,7 @@
 <section class="flex flex-col">
 	<h3 class="text-center">Use this filter to switch between pets</h3>
 	<ul class="flex justify-center">
-		<Filter />
+		<Filter petTypes = {allPets.petTypes}/>
 	</ul>
 </section>
 <h2 class="my-6 text-center text-2xl">Dogs selected</h2>
