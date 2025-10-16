@@ -42,3 +42,17 @@ export async function getSpiderIds(req, res) {
   const spiderIds = spiders.map(animal => animal.id)
   res.status(200).send(spiderIds);
 }
+
+export async function deletePets(req, res) {
+  let deletedIds = req.body.map(deleteAnimalById);
+  await db.write();
+  res.status(200).send(`Deleted animals with ids: ${deletedIds}`);
+}
+
+function deleteAnimalById(id) {
+  let index = animals.findIndex(animal => animal.id === id);
+  if (index > -1) {
+    animals.splice(index, 1);
+    return id;
+  }
+}
