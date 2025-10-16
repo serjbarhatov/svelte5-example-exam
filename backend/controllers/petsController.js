@@ -12,18 +12,19 @@ export async function getAllPets(req, res) {
 }
 
 export async function updatePet(req, res) {
-  // fixme check if id exists
-  let id = req.query.id;
-  let name = req.query.name;
-  let type = req.query.type;
-  let time = new Date().toLocaleString();
-  let animal = {id: id, name: name, type: type, time: time};  
-  // todo remove log
-  console.log(animal);
-  animals.push(animal);
+  let id = Number(req.params.id);
+  let animal = animals.find(animal => animal.id === id);
+  if (!animal) {
+    res.status(404).send(`Animal with ${id} not found!`);
+    return
+  }
+  animal.name = req.body.name;
+  animal.type = req.body.type;
+  animal.icon = req.body.icon;
+  animal.time = new Date().toLocaleString();
   await db.write();
 
-  res.status(201).send(`I added this client: ${JSON.stringify(animal)}?`);
+  res.status(201).send(`I updated this pet: ${JSON.stringify(animal)}?`);
 }
 
 export async function getPet(req, res) {
