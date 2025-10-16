@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllPets, updatePet, getPet } from '../controllers/petsController.js';
+import { getAllPets, updatePet, getPet, getSpiderIds } from '../controllers/petsController.js';
 import { checkName } from '../middleware/exampleMiddleware.js';
 import cors from 'cors';
 const router = express.Router();
@@ -11,5 +11,6 @@ router.get('/', cors(), (req, res, next) => {
 router.get('/pets', cors(), checkName, getAllPets);
 router.get('/pets/:id', cors(), checkName, getPet);
 router.put('/pets/:id', cors(), checkName, updatePet)
+router.get('/spiders', cors(), checkName, getSpiderIds);
 
 export default router;

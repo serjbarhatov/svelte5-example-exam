@@ -36,3 +36,9 @@ export async function getPet(req, res) {
     res.status(404).send('Animal not found');
   }
 }
+
+export async function getSpiderIds(req, res) {
+  const spiders = animals.filter(animal => animal.type === 'Spider');
+  const spiderIds = spiders.map(animal => animal.id)
+  res.status(200).send(spiderIds);
+}
