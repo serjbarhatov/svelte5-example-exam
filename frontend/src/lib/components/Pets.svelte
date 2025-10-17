@@ -2,12 +2,8 @@
 	import { setContext } from 'svelte';
 	import Filter from './Filter.svelte';
 	let { allPets } = $props();
-	let selectedPetType = $state('All');
-	const handleFilterSelect = (s) => {
-		selectedPetType = s;
-		console.log(selectedPetType);
-	};
-	setContext('pets', { handleFilterSelect });
+	let context = $state({selectedPetType: 'All'});
+	setContext('pets', context)
 </script>
 
 <section class="flex flex-col">
@@ -27,7 +23,7 @@
 	</thead>
 	<tbody class="text-xs">
 		{#each allPets.pets as pet}
-		{#if selectedPetType == pet.type || selectedPetType == 'All'}
+		{#if context.selectedPetType == pet.type || context.selectedPetType == 'All'}
 			<tr>
 				<td>{pet.name}</td>
 				<td>{pet.type}</td>
